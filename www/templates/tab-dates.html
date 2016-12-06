@@ -1,5 +1,12 @@
 <ion-view view-title="Dates des prochains cours">
   <ion-content>
-
+   <ion-list>
+      <ion-item ng-repeat="item in items">
+      <div>
+		{{item.date | date:'dd-MM-yyyy'}}
+        {{item.heure}}      	
+      </div>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
