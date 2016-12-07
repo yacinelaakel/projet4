@@ -1,4 +1,26 @@
 <ion-view view-title="Contact">
   <ion-content>
+      <!-- <a href="tel:+1-1800-555-5555" class="button button-positive">Call me</a> -->
+      <div class="item item-divider">
+        <strong>Vous pouvez joindre votre responsable...</strong>
+      </div>
+      <ion-list>
+        <ion-item ng-repeat="item in items">
+          <div class="card">
+            <div class="item item-divider">
+              Responsable <span class="capitalize"><strong>{{item.key}}</strong></span>
+            </div>
+            <div class="item item-text-wrap">
+              <p>
+                Numéro : {{item.value}} 
+                <div class="tel"><a href="tel:{{item.value}}" class="button button-balanced ion-ios-telephone"></a></div>
+              </p>
+            </div>
+            <div class="item item-divider">
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+
   </ion-content>
 </ion-view>

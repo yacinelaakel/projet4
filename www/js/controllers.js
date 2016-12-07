@@ -2,14 +2,19 @@ angular.module('multilingua.controllers', [])
 
 .controller('CoursCtrl', function($scope) {})
 
-.controller('ContactCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+.controller('ContactCtrl', function($scope, $http) {
+
+  var items = [];
+  var url = 'https://projet4-23e35.firebaseio.com/responsables.json';
+  $http.get(url).success(function(data) {
+    angular.forEach(data, function(value, key) {
+      items.push({key, value});
+    });
+    return items;
+  });
+
+  $scope.items = items;
+
 })
 
 .controller('DatesCtrl', function($scope, $http) {

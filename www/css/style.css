@@ -1,10 +1,22 @@
 /* Empty. Add your own CSS if you like */
 
 .containerDates {
-	background-color: #43CEE6;
-	margin-top: 10px;
+	background-color: #E9EBEE;
+	margin-top: 15px;
 	text-align: center;
-	letter-spacing:0.14em;
-	border-radius: 10px;
+	letter-spacing:0.10em;
 }
 
+.capitalize {
+   text-transform: capitalize;
+}
+
+.tel {
+	position: absolute;
+	right: 3px;
+	top: 3.5px;
+}
+
+.tel a {
+	font-size: 30px;
+}
