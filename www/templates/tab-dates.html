@@ -6,7 +6,8 @@
    			<strong>À ne pas manquer...</strong>
    		</div>
 	    <ion-item ng-repeat="item in items" class="containerDates">
-		    Le : <strong>{{item.date | date:'dd-MM-yyyy'}}</strong> <br> À : <strong>{{item.heure}}h</strong>    	
+		    Date : <strong>{{item.date | date:'dd-MM-yyyy'}}</strong> <br> 
+        Heure : <strong>{{item.heure}}h</strong>    	
 	    </ion-item>
     </ion-list>
   </ion-content>

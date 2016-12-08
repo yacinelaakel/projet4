@@ -1,5 +1,4 @@
-/* Empty. Add your own CSS if you like */
-
+/* Page dates */
 .containerDates {
 	background-color: #E9EBEE;
 	margin-top: 15px;
@@ -11,6 +10,7 @@
    text-transform: capitalize;
 }
 
+/* Page contact */
 .tel {
 	position: absolute;
 	right: 3px;
@@ -20,3 +20,32 @@
 .tel a {
 	font-size: 30px;
 }
+
+/* Page cours */
+
+.home_links a{
+	color: white;
+	text-decoration: none;
+	display: block;
+	margin-top: 40px !important;
+}
+
+.home_links a:hover {
+	color:white;
+}
+
+#aGb {
+}
+	
+#aDe {
+
+}
+
+#aEs {
+
+}
+
+#aPt {
+   
+}
+
