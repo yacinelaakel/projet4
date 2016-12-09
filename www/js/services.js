@@ -1,47 +1,35 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+.factory('Lessons', function() {
+  var lessons = [{
+    subject: [
+      {name: "anglais", cours: [
+        {id: 1, titre: "Première leçon", contenu : "Les verbes régulier terminent en -ed au prétérit", exercices: [
+          {id: 1, question: "q1"}, 
+          {id: 2, question: "q2"}, 
+          {id: 3, question: "q3"}]}, 
+        {id: 2, titre: "Deuxième leçon", contenu : "Ceci est la deuxième leçon", exercices: [
+          {id: 1, question: "q1"}, 
+          {id: 2, question: "q2"} , 
+          {id: 3, question: "q3"}]},
+        {id: 1, titre: "Troisième leçon", contenu : "Ceci est la troisième leçon", exercices: [
+          {id: 1, question: "q1"}, 
+          {id: 2, question: "q2"}, 
+          {id: 3, question: "q3"}]}]},
+      {name: "espagnol", contenu : "cours d'espagnol", titre: "Première leçon"},
+      {name: "allemand", contenu : "cours d'allemand", titre: "Première leçon"},
+      {name: "portugais", contenu : "cours de portugais", titre: "Première leçon"}
+    ]
   }];
 
   return {
     all: function() {
-      return chats;
+      return lessons;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    get: function(subject) {
+      for (var i = 0; i < lessons.length; i++) {
+        if (lessons.subject[i].keys() == subject) {
+          return lessons[i];
         }
       }
       return null;

@@ -2,6 +2,13 @@ angular.module('multilingua.controllers', [])
 
 .controller('CoursCtrl', function($scope) {})
 
+.controller('CoursStep1Ctrl', function($scope, $stateParams, Lessons) {
+
+  $scope.lessons = Lessons.all();
+  
+
+})
+
 .controller('ContactCtrl', function($scope, $http) {
 
   var items = [];

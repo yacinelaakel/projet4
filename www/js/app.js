@@ -50,6 +50,16 @@ angular.module('multilingua', ['ionic', 'multilingua.controllers', 'starter.serv
     }
   })
 
+  .state('tab.step1', {
+    url: '/step1/:selectedLanguage',
+    views: {
+      'tab-cours': {
+        templateUrl: 'templates/cours-step1.html',
+        controller: 'CoursStep1Ctrl'
+      }
+    }
+  })
+
   .state('tab.contact', {
       url: '/contact',
       views: {

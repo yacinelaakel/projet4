@@ -1,0 +1,10 @@
+<ion-view view-title="Cours">
+	<ion-content>
+		{{selectedLanguage}}
+   		<ion-list>
+   			<ion-item ng-repeat="lesson in lessons" class="containerDates">
+   				{{lesson.subject[0].cours[2].contenu}}
+   			</ion-item>
+   		</ion-list>
+	</ion-content>	
+</ion-view>
