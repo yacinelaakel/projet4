@@ -1,5 +1,31 @@
 <ion-view>
 	<ion-content>
-		{{leCours}}
+
+		<div class="item item-divider titleContent">
+        	<strong class="ion-university"> Exercices</strong>
+      	</div>
+
+      	<ion-list>
+	        <ion-item class="listProp" ng-repeat="exercice in leCoursExercice">
+
+		  		<div class="item item-divider cardExercice">
+		   			<h2>Exercice {{exercice.id}}</h2>
+	  			</div>
+
+	  	        <div class="item item-text-wrap">
+              		{{exercice.question}}
+              		<hr>
+              		<ion-item class="listProp" ng-repeat="prop in exercice.propositions">
+							<p>{{prop.proposition}}</p>
+              		</ion-item>
+            	</div>
+
+            	</ion-item>
+	        </ion-item>
+      	</ion-list>
+
+		<div style="text-align:center; margin-bottom: 30px">
+			<a class="button button-balanced ion-android-checkmark-circle"> Je valide mes réponses</a>
+		</div>
 	</ion-content>
 </ion-view>

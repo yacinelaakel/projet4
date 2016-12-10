@@ -49,6 +49,10 @@
    
 }
 
+.titleContent {
+	border-bottom: dashed;
+}
+
 .cardLecon {
 	background-color: #D9EDF7;
 }
@@ -59,9 +63,17 @@
 
 .ion-quote, .ion-volume-medium {
 	transform: scaleX(-1);
-	font-size: 20px;
 }
 
 #link-container {
 	text-align: center;
+}
+
+.cardExercice {
+	background-color: #ffc900;
+	color: black;
+}
+
+.listProp {
+	border: none;
 }

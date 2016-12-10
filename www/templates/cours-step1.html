@@ -1,32 +1,38 @@
 <ion-view view-title="Cours">
 	<ion-content>
-		<div class="item item-divider">
+		<div class="item item-divider titleContent">
         	<strong class="capitalize">{{selectedLanguage}}</strong> - Leçon du jour
       	</div>
 		
 		<div class="card" style="margin-top:30px">
+
 	  		<div class="item item-divider cardLecon">
 		   		<h2 style="text-align:center" class="ion-wand"> {{leCours.titre}}</h2>
 	  		</div>
+
 	  		<div class="item item-text-wrap contentLecon">
 	    		<p>{{leCours.contenu}}</p>
 	  		</div>
+
 	  		<div class="item item-divider cardLecon">
 				<h2 class="ion-quote"></h2>
 	  		</div>
+
 	  		<div class="item item-text-wrap contentLecon">
 				<audio controls>
 	  				<source src="{{audio}}" type="audio/mpeg">
 					Your browser does not support the audio element.
 				</audio>
 			</div>
+
 	  		<div class="item item-divider cardLecon">
 				<h2 class="ion-volume-medium"></h2>
 	  		</div>
+
 		</div>
 
 		<div style="text-align:center">
-			<a href="#/tab/step2/{{leCours}}" class="button button-balanced ion-android-checkmark-circle"> J'ai terminé cette leçon</a>
+			<a href="#/tab/step2/{{leCours.exercices}}" class="button button-balanced ion-android-checkmark-circle"> J'ai terminé cette leçon</a>
 		</div>
 	</ion-content>	
 </ion-view>

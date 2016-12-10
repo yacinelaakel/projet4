@@ -19,7 +19,8 @@ angular.module('multilingua.controllers', [])
 })
 
 .controller('CoursStep2Ctrl', function($scope, $stateParams) {
-  $scope.leCours = $stateParams.leCours;
+  //Contient seulement les exercices
+  $scope.leCoursExercice = JSON.parse($stateParams.leCoursExercice);
 })
 
 .controller('ContactCtrl', function($scope, $http) {
