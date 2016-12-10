@@ -4,8 +4,14 @@ angular.module('multilingua.controllers', [])
 
 .controller('CoursStep1Ctrl', function($scope, $stateParams, Lessons) {
 
-  $scope.lessons = Lessons.all();
-  
+  //Langue choisie
+  $scope.selectedLanguage = $stateParams.selectedLanguage;
+  //Associe la langue choisie au subject concerné 
+  var lessons = Lessons.get($stateParams.selectedLanguage);
+
+  //Choisit une leçon au hasard dans le subject concerné
+  var nbr = Math.floor((Math.random() * lessons.cours.length - 1) + 1);
+  $scope.leCours = lessons.cours[nbr];
 
 })
 

@@ -49,3 +49,14 @@
    
 }
 
+.cardLecon {
+	background-color: #D9EDF7;
+}
+
+.contentLecon {
+	background-color: #EFF1F5;
+}
+
+.ion-quote {
+	transform: scaleX(-1);
+}

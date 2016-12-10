@@ -16,9 +16,9 @@ angular.module('starter.services', [])
           {id: 1, question: "q1"}, 
           {id: 2, question: "q2"}, 
           {id: 3, question: "q3"}]}]},
-      {name: "espagnol", contenu : "cours d'espagnol", titre: "Première leçon"},
-      {name: "allemand", contenu : "cours d'allemand", titre: "Première leçon"},
-      {name: "portugais", contenu : "cours de portugais", titre: "Première leçon"}
+      {name: "espagnol", cours: []},
+      {name: "allemand", cours: []},
+      {name: "portugais", cours: []}
     ]
   }];
 
@@ -26,10 +26,11 @@ angular.module('starter.services', [])
     all: function() {
       return lessons;
     },
-    get: function(subject) {
-      for (var i = 0; i < lessons.length; i++) {
-        if (lessons.subject[i].keys() == subject) {
-          return lessons[i];
+    get: function(selectedLanguage) {
+      for (var i = 0; i < lessons[0].subject.length; i++) {
+        if (lessons[0].subject[i].name == selectedLanguage) {
+          //Object {name: "selectedLanguage", cours: Array[3]}
+          return lessons[0].subject[i];
         }
       }
       return null;
