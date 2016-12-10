@@ -57,6 +57,11 @@
 	background-color: #EFF1F5;
 }
 
-.ion-quote {
+.ion-quote, .ion-volume-medium {
 	transform: scaleX(-1);
+	font-size: 20px;
+}
+
+#link-container {
+	text-align: center;
 }

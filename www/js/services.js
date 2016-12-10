@@ -4,15 +4,23 @@ angular.module('starter.services', [])
   var lessons = [{
     subject: [
       {name: "anglais", cours: [
-        {id: 1, titre: "Première leçon", contenu : "Les verbes régulier terminent en -ed au prétérit", exercices: [
+        {id: 1, titre: "Première leçon", contenu : "Les verbes régulier terminent en -ed au prétérit", audio: "audio1-gb.mp3", exercices: [
           {id: 1, question: "q1"}, 
           {id: 2, question: "q2"}, 
           {id: 3, question: "q3"}]}, 
-        {id: 2, titre: "Deuxième leçon", contenu : "Ceci est la deuxième leçon", exercices: [
+        {id: 2, titre: "Deuxième leçon", contenu : "Ceci est la deuxième leçon", audio: "audio2-gb.mp3", exercices: [
           {id: 1, question: "q1"}, 
           {id: 2, question: "q2"} , 
           {id: 3, question: "q3"}]},
-        {id: 1, titre: "Troisième leçon", contenu : "Ceci est la troisième leçon", exercices: [
+        {id: 3, titre: "Troisième leçon", contenu : "Ceci est la troisième leçon", audio: "audio3-gb.mp3", exercices: [
+          {id: 1, question: "q1"}, 
+          {id: 2, question: "q2"}, 
+          {id: 3, question: "q3"}]},
+        {id: 4, titre: "Quatrième leçon", contenu : "Ceci est la quatrième leçon", audio: "audio4-gb.mp3", exercices: [
+          {id: 1, question: "q1"}, 
+          {id: 2, question: "q2"}, 
+          {id: 3, question: "q3"}]},
+        {id: 5, titre: "Cinquième leçon", contenu : "Ceci est la cinquième leçon", audio: "audio5-gb.mp3", exercices: [
           {id: 1, question: "q1"}, 
           {id: 2, question: "q2"}, 
           {id: 3, question: "q3"}]}]},

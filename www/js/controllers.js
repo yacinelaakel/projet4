@@ -13,6 +13,13 @@ angular.module('multilingua.controllers', [])
   var nbr = Math.floor((Math.random() * lessons.cours.length - 1) + 1);
   $scope.leCours = lessons.cours[nbr];
 
+  var audio = "audio/";
+  $scope.audio = audio.concat($scope.leCours.audio);
+
+})
+
+.controller('CoursStep2Ctrl', function($scope, $stateParams) {
+  $scope.leCours = $stateParams.leCours;
 })
 
 .controller('ContactCtrl', function($scope, $http) {

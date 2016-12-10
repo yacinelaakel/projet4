@@ -60,6 +60,16 @@ angular.module('multilingua', ['ionic', 'multilingua.controllers', 'starter.serv
     }
   })
 
+  .state('tab.step2', {
+    url: '/step2/:leCours',
+    views: {
+      'tab-cours': {
+        templateUrl: 'templates/cours-step2.html',
+        controller: 'CoursStep2Ctrl'
+      }
+    }
+  })
+
   .state('tab.contact', {
       url: '/contact',
       views: {
