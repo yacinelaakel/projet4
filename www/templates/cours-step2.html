@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view view-title="Cours">
 	<ion-content>
 
 		<div class="item item-divider titleContent">
@@ -15,17 +15,28 @@
 	  	        <div class="item item-text-wrap">
               		{{exercice.question}}
               		<hr>
+              		<!-- Boucle des propositions -->
               		<ion-item class="listProp" ng-repeat="prop in exercice.propositions">
-							<p>{{prop.proposition}}</p>
+							<p id="test">
+								<input id="{{exercice.id}}{{prop.id}}" type="radio" name="radio{{exercice.id}}" ng-model="exercice.propSelected" value="{{prop.proposition}}" required> 
+								<label for="{{exercice.id}}{{prop.id}}">{{prop.proposition}}</label>
+							</p>
               		</ion-item>
+
+              		<!-- Solutions -->
+              		<span ng-if="afficherSolution" style="font-style:italic" class="positive">
+              			Réponse: {{exercice.reponse}}
+              		</span>
             	</div>
 
             	</ion-item>
 	        </ion-item>
       	</ion-list>
-
-		<div style="text-align:center; margin-bottom: 30px">
-			<a class="button button-balanced ion-android-checkmark-circle"> Je valide mes réponses</a>
+      	<div class="card" ng-if="erreur">
+			<span class="assertive padding">Veuillez répondre à toutes les questions</span>
+      	</div>
+		<div class="submitButton">
+			<a class="button button-balanced ion-android-checkmark-circle" ng-click="showAlert()"> Je valide mes réponses</a>
 		</div>
 	</ion-content>
 </ion-view>

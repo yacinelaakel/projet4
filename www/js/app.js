@@ -41,6 +41,7 @@ angular.module('multilingua', ['ionic', 'multilingua.controllers', 'starter.serv
   // Each tab has its own nav history stack:
 
   .state('tab.cours', {
+    cache: false,
     url: '/cours',
     views: {
       'tab-cours': {
