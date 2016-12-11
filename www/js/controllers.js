@@ -1,9 +1,6 @@
 angular.module('multilingua.controllers', [])
 
-.controller('CoursCtrl', function($scope, $ionicHistory) {
-  $ionicHistory.clearHistory();
-  $ionicHistory.clearCache();
-})
+.controller('CoursCtrl', function($scope) {})
 
 .controller('CoursStep1Ctrl', function($scope, $stateParams, Lessons) {
   //Langue choisie
@@ -52,7 +49,7 @@ angular.module('multilingua.controllers', [])
       });
 
       alertPopup.then(function(res) {
-        $state.go('tab.cours', null, {reload: true});
+        $state.go('tab.cours');
       });
     }
   };
