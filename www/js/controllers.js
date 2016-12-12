@@ -8,9 +8,13 @@ angular.module('multilingua.controllers', [])
   //Associe la langue choisie au subject concerné 
   var lessons = Lessons.get($stateParams.selectedLanguage);
 
-  //Choisit une leçon au hasard dans le subject concerné
-  var nbr = Math.floor((Math.random() * lessons.cours.length - 1) + 1);
-  $scope.leCours = lessons.cours[nbr];
+  var currentDay = new Date().getDate(); 
+  //On soustrait au jour courant le nombre de leçons tant que ce jour est supérieur au nombre de leçons
+  while(currentDay > lessons.cours.length) {
+    currentDay = currentDay - lessons.cours.length;
+  }
+  //Choisit une leçon selon le jour actuel, on aura bien une leçon par jour, que l'on pourra relire à volonté
+  $scope.leCours = lessons.cours[currentDay-1];
 
   var audio = "audio/";
   $scope.audio = audio.concat($scope.leCours.audio);
@@ -24,7 +28,6 @@ angular.module('multilingua.controllers', [])
   $scope.erreur = false;
   $scope.afficherSolution = false;
 
-  $scope.score = 0;
   $scope.showAlert = function() {
     //reset en cas d'erreur
     $scope.score = 0;
