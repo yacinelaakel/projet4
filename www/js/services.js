@@ -74,14 +74,18 @@ angular.module('starter.services', [])
   }];
 
   return {
-    all: function() {
-      return lessons;
-    },
     get: function(selectedLanguage) {
       for (var i = 0; i < lessons[0].subject.length; i++) {
         if (lessons[0].subject[i].name == selectedLanguage) {
-          //Object {name: "selectedLanguage", cours: Array[3]}
-          return lessons[0].subject[i];
+
+          var currentDay = new Date().getDate();
+          var nbrCours = lessons[0].subject[i].cours.length;
+          //On soustrait au jour courant le nombre de leçons tant que ce jour est supérieur au nombre de leçons
+          while(currentDay > nbrCours) {
+            currentDay = currentDay - nbrCours;
+          }
+          //Choisit une leçon selon le jour actuel, on aura bien une leçon par jour, que l'on pourra relire à volonté
+          return lessons[0].subject[i].cours[currentDay-1];
         }
       }
       return null;
