@@ -1,6 +1,4 @@
-angular.module('starter.services', [])
-
-.factory('Lessons', function() {
+multilingua.factory('Lessons', function() {
   var lessons = [{
     subject: [
       {name: "anglais", cours: [

@@ -1,0 +1,1 @@
+multilingua.controller('CoursCtrl', function($scope) {})
