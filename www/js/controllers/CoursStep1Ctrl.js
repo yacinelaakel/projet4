@@ -8,4 +8,4 @@ multilingua.controller('CoursStep1Ctrl', function($scope, $stateParams, Lessons)
   var audio = "audio/";
   $scope.audio = audio.concat($scope.leCours.audio);
 
-})
+});

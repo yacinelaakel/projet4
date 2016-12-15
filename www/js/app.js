@@ -1,4 +1,5 @@
-var multilingua = angular.module('multilingua', ['ionic', 'ngCordova'])
+
+var multilingua = angular.module('multilingua', ['ionic', 'ngCordova', 'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
