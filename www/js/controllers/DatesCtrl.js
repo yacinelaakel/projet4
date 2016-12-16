@@ -1,14 +1,14 @@
 multilingua.controller('DatesCtrl', function($scope, $firebaseObject, $cordovaLocalNotification) {
 
   var ref = firebase.database().ref();
-  $scope.dates = $firebaseObject(ref.child('dates'));
+  var dates = $firebaseObject(ref.child('dates'));
 
   var currentDate = new Date();
 
   var items = [];
   var id = 0;
-  $scope.dates.$loaded().then(function() {
-    angular.forEach($scope.dates, function(value, key) {
+  dates.$loaded().then(function() {
+    angular.forEach(dates, function(value, key) {
       console.log(value.date + " " + value.heure);
       //Format "YYYY-MM-DDTHour"
       var uneDate = new Date(value.date + "T" + value.heure);
