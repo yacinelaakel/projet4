@@ -1,8 +1,10 @@
-multilingua.controller('CoursCtrl', function($scope, $firebaseAuth, $ionicPopup) {
+multilingua.controller('CoursCtrl', function($scope, Auth, $ionicPopup, $state) {
 
-    var auth = $firebaseAuth();
-	var firebaseUser = auth.$getAuth();
+	var firebaseUser = Auth.$getAuth();
 
+	$scope.signOut = function() {
+		firebaseUser = Auth.$signOut();
+	}
 	if (!firebaseUser) {
   		$scope.data = {};
    		var myPopup = $ionicPopup.show({
@@ -18,23 +20,16 @@ multilingua.controller('CoursCtrl', function($scope, $firebaseAuth, $ionicPopup)
 		             		$scope.data.erreur = true;
 		             		e.preventDefault();
 		           		} else {
-		             		$scope.signUser($scope.data.email, $scope.data.password);
+		             		Auth.$signInWithEmailAndPassword($scope.data.email, $scope.data.password)
+	        					.then(function(firebaseUser) {})
+	        					.catch(function(error) {
+	        						console.log(error.code);
+	        						$state.go('tab.cours', {}, {reload: true});
+	        					});
 		           		}
 	         		}
 	       		},
 	     	]
 	   	});
-
-	    $scope.signUser = function(email, password) {
-	     	$scope.message = null;
-	      	$scope.error = null;
-
-	      	auth.$signInWithEmailAndPassword(email, password)
-	        	.then(function(firebaseUser) {
-	          		$scope.message = "Firebase user uid : " + firebaseUser.uid;
-	        	}).catch(function(error) {
-	          	$scope.error = error;
-	        });
-	    };
 	}   
 });

@@ -1,7 +1,14 @@
 
 var multilingua = angular.module('multilingua', ['ionic', 'ngCordova', 'firebase'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $state) {
+
+  $rootScope.$on("$stateChangeError", function(event, next, previous, error) {
+    if (error) {
+      $state.go('tab.cours', {}, {reload: true});
+    }
+  });
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -36,7 +43,6 @@ var multilingua = angular.module('multilingua', ['ionic', 'ngCordova', 'firebase
   // Each tab has its own nav history stack:
 
   .state('tab.cours', {
-    cache: false,
     url: '/cours',
     views: {
       'tab-cours': {
@@ -51,7 +57,12 @@ var multilingua = angular.module('multilingua', ['ionic', 'ngCordova', 'firebase
     views: {
       'tab-cours': {
         templateUrl: 'templates/cours-step1.html',
-        controller: 'CoursStep1Ctrl'
+        controller: 'CoursStep1Ctrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
       }
     }
   })
@@ -61,27 +72,42 @@ var multilingua = angular.module('multilingua', ['ionic', 'ngCordova', 'firebase
     views: {
       'tab-cours': {
         templateUrl: 'templates/cours-step2.html',
-        controller: 'CoursStep2Ctrl'
+        controller: 'CoursStep2Ctrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
       }
     }
   })
 
   .state('tab.contact', {
-      url: '/contact',
-      views: {
-        'tab-contact': {
-          templateUrl: 'templates/tab-contact.html',
-          controller: 'ContactCtrl'
+    url: '/contact',
+    views: {
+      'tab-contact': {
+        templateUrl: 'templates/tab-contact.html',
+        controller: 'ContactCtrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
         }
       }
-    })
+    }
+  })
 
   .state('tab.dates', {
     url: '/dates',
     views: {
       'tab-dates': {
         templateUrl: 'templates/tab-dates.html',
-        controller: 'DatesCtrl'
+        controller: 'DatesCtrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
       }
     }
   });

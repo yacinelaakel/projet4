@@ -1,4 +1,5 @@
 multilingua.controller('CoursStep1Ctrl', function($scope, $stateParams, Lessons) {
+
   //Langue choisie
   $scope.selectedLanguage = $stateParams.selectedLanguage;
 
