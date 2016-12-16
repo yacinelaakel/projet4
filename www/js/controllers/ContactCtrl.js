@@ -1,10 +1,13 @@
-multilingua.controller('ContactCtrl', function($scope, $http) {
+multilingua.controller('ContactCtrl', function($scope, $firebaseObject) {
+
+  	var ref = firebase.database().ref();
+  	$scope.responsables = $firebaseObject(ref.child('responsables'));
 
   	var items = [];
-  	var url = 'https://projet4-23e35.firebaseio.com/responsables.json';
-  		$http.get(url).success(function(data) {
-    	angular.forEach(data, function(value, key) {
-      	items.push({key, value});
+
+  	$scope.responsables.$loaded().then(function() {
+    	angular.forEach($scope.responsables, function(value, key) {
+      		items.push({key, value});
     	});
     	return items;
   	});
