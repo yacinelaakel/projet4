@@ -1,23 +1,22 @@
-multilingua.controller('DatesCtrl', function($scope, $http, $cordovaLocalNotification) {
+multilingua.controller('DatesCtrl', function($scope, $firebaseObject, $cordovaLocalNotification) {
 
+  var ref = firebase.database().ref();
+  $scope.dates = $firebaseObject(ref.child('dates'));
 
-  //récupérer les dates depuis firebase
-  var url = 'https://projet4-23e35.firebaseio.com/dates.json';
   var currentDate = new Date();
-  // //Petit problème avec l'heure : elle a une heure de retard par rapport à moi
-  currentDate.setHours(currentDate.getHours()+1);
 
   var items = [];
   var id = 0;
-  $http.get(url).success(function(data) {
-    angular.forEach(data, function(value, key) {
+  $scope.dates.$loaded().then(function() {
+    angular.forEach($scope.dates, function(value, key) {
+      console.log(value.date + " " + value.heure);
       //Format "YYYY-MM-DDTHour"
       var uneDate = new Date(value.date + "T" + value.heure);
       //On affiche que les dates futures
       if(uneDate > currentDate) {
         //Associe un push une heure avant chaque date future
         var alarmTime = uneDate;
-        alarmTime.setHours(alarmTime.getHours() -2);
+        alarmTime.setHours(alarmTime.getHours() -1);
         $cordovaLocalNotification.schedule({
           id: id++,
           date: alarmTime,
@@ -29,6 +28,7 @@ multilingua.controller('DatesCtrl', function($scope, $http, $cordovaLocalNotific
       }
     });
   });
+
   $scope.items = items;
 
 });
