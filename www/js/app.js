@@ -25,7 +25,6 @@ var multilingua = angular.module('multilingua', ['ionic', 'ngCordova', 'firebase
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-  
   $ionicConfigProvider.views.maxCache(0);
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

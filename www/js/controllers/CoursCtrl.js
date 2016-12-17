@@ -8,7 +8,7 @@ multilingua.controller('CoursCtrl', function($scope, Auth, $ionicPopup, $state) 
 	if (!firebaseUser) {
   		$scope.data = {};
    		var myPopup = $ionicPopup.show({
-	    	template: '<input type="email" ng-model="data.email" placeholder="E-mail"><input type="text" ng-model="data.password" placeholder="Mot de passe"><label style="color:red" ng-if="data.erreur">Veuillez remplir tous les champs</label>',
+	    	template: '<input type="email" ng-model="data.email" placeholder="E-mail"><br><input type="text" ng-model="data.password" placeholder="Mot de passe"><label style="color:red" ng-if="data.erreur">Veuillez remplir tous les champs conformément</label>',
 	     	title: 'Veuillez vous authentifier',
 	     	scope: $scope,
 	     	buttons: [
