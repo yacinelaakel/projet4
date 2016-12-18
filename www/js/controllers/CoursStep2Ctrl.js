@@ -3,7 +3,6 @@ multilingua.controller('CoursStep2Ctrl', function($scope, $stateParams, $ionicPo
   $scope.leCoursExercice = JSON.parse($stateParams.leCoursExercice);
 
   $scope.erreur = false;
-  $scope.afficherSolution = false;
 
   $scope.showAlert = function() {
     //reset en cas d'erreur

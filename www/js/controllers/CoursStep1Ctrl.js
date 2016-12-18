@@ -1,10 +1,9 @@
-multilingua.controller('CoursStep1Ctrl', function($scope, $stateParams, $firebaseObject) {
+multilingua.controller('CoursStep1Ctrl', function($scope, $stateParams, $firebaseObject, $timeout) {
 
   	var ref = firebase.database().ref();
   	var subjects = $firebaseObject(ref.child('subject'));
   	$scope.selectedLanguage = $stateParams.selectedLanguage;
 
-	$scope.leCours;
   	subjects.$loaded().then(function() {
     	angular.forEach(subjects, function(value, key) {
 	        if (value.name == $stateParams.selectedLanguage) {
@@ -20,21 +19,11 @@ multilingua.controller('CoursStep1Ctrl', function($scope, $stateParams, $firebas
       	});
 	    return $scope.leCours;
     }).then(function(leCours) {
-    	var storage = firebase.storage();
-		var pathReference = storage.ref(leCours.audio);
+    	var pathReference = firebase.storage().ref(leCours.audio);
 		pathReference.getDownloadURL().then(function(url) {
-			//Crée la balise audio et la balise source
-			var audio = document.createElement("audio");
-			audio.controls = true;
-			audio.id = "audioDivAudio";
-
-			var source = document.createElement("source");
-			//On utilise l'url du fichier audio
-			source.setAttribute("src", url);
-			source.setAttribute("type", "audio/mpeg");
-
-        	document.getElementById("divAudio").appendChild(audio);
-    		document.getElementById("audioDivAudio").appendChild(source);
+			$scope.audio = url;
+			$scope.afficher = true;
+		    $timeout(function() {}, 1);
 		}).catch(function(error) {
 		});
     });

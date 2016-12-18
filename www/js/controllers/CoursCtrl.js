@@ -2,9 +2,6 @@ multilingua.controller('CoursCtrl', function($scope, Auth, $ionicPopup, $state) 
 
 	var firebaseUser = Auth.$getAuth();
 
-	$scope.signOut = function() {
-		firebaseUser = Auth.$signOut();
-	}
 	if (!firebaseUser) {
   		$scope.data = {};
    		var myPopup = $ionicPopup.show({

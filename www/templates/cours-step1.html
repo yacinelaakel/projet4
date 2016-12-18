@@ -17,8 +17,10 @@
 				<h2 class="ion-quote"></h2>
 	  		</div>
 
-	  		<div id="divAudio" class="item item-text-wrap contentLecon">
-
+	  		<div class="item item-text-wrap contentLecon">
+				<audio controls>
+					<source ng-if="afficher" ng-src="{{audio}}" type="audio/mpeg">
+				</audio>
 			</div>
 
 	  		<div class="item item-divider cardLecon">

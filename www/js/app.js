@@ -24,7 +24,8 @@ var multilingua = angular.module('multilingua', ['ionic', 'ngCordova', 'firebase
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist(['https://firebasestorage.googleapis.com/v0/b/projet4-23e35.appspot.com/**']);
   $ionicConfigProvider.views.maxCache(0);
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
