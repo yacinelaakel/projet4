@@ -17,9 +17,8 @@
               		<hr>
               		<!-- Boucle des propositions -->
               		<ion-item class="listProp" ng-repeat="prop in exercice.propositions">
-							<p id="test">
-								<input id="{{exercice.id}}{{prop.id}}" type="radio" name="radio{{exercice.id}}" ng-model="exercice.propSelected" value="{{prop.proposition}}" required> 
-								<label for="{{exercice.id}}{{prop.id}}">{{prop.proposition}}</label>
+							<p>
+								<ion-radio id="{{exercice.id}}{{prop.id}}" type="radio" name="radio{{exercice.id}}" ng-model="exercice.propSelected" value="{{prop.proposition}}" required>{{prop.proposition}}</ion-radio>
 							</p>
               		</ion-item>
             	</div>

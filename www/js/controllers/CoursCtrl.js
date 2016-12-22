@@ -1,7 +1,6 @@
 multilingua.controller('CoursCtrl', function($scope, Auth, $ionicPopup, $state) {
 
 	var firebaseUser = Auth.$getAuth();
-
 	if (!firebaseUser) {
   		$scope.data = {};
    		var myPopup = $ionicPopup.show({
@@ -13,15 +12,16 @@ multilingua.controller('CoursCtrl', function($scope, Auth, $ionicPopup, $state) 
 	         		text: '<b>Connexion</b>',
 	         		type: 'button-balanced',
 	         		onTap: function(e) {
+	         			e.preventDefault();
 		           		if (!$scope.data.email || !$scope.data.password) {
 		             		$scope.data.erreur = true;
-		             		e.preventDefault();
 		           		} else {
 		             		Auth.$signInWithEmailAndPassword($scope.data.email, $scope.data.password)
-	        					.then(function(firebaseUser) {})
+	        					.then(function(firebaseUser) {
+	        						myPopup.close();
+	        					})
 	        					.catch(function(error) {
-	        						console.log(error.code);
-	        						$state.go('tab.cours', {}, {reload: true});
+	        						$scope.data.erreur = true;
 	        					});
 		           		}
 	         		}

@@ -67,7 +67,3 @@
 	text-align:center; 
 	margin-bottom: 30px;
 }
-
-input:hover, label:hover {
-	cursor: pointer;
-}
