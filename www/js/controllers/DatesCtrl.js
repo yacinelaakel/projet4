@@ -8,7 +8,7 @@ multilingua.controller('DatesCtrl', function($scope, $stateParams, Dates, $cordo
         //Format "YYYY-MM-DDTHour"
         var uneDate = new Date(value.date + "T" + value.heure);
         var alarmTime = uneDate;
-      	alarmTime.setHours(alarmTime.getHours() -1);
+      	alarmTime.setHours(alarmTime.getHours() - 1);
       	$cordovaLocalNotification.schedule({
         	id: id++,
         	date: alarmTime,

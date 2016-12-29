@@ -10,18 +10,18 @@ multilingua.controller('CoursStep2Ctrl', function($scope, $stateParams, $ionicPo
     $scope.totalQuestion = 0;
     $scope.propsSelected = [];
     angular.forEach($scope.leCoursExercice, function(exercice) {
-      if(exercice.propSelected == null) {
+      if (exercice.propSelected == null) {
         $scope.erreur = true;
         $scope.propsSelected.push(exercice.propSelected);
       } else {
         $scope.propsSelected.push(exercice.propSelected);
-        if(exercice.reponse == exercice.propSelected) {
+        if (exercice.reponse == exercice.propSelected) {
           $scope.score++;
         }
       }
       $scope.totalQuestion++;
     });
-    if($scope.propsSelected.indexOf(undefined) == -1) {
+    if ($scope.propsSelected.indexOf(undefined) == -1) {
       var alertPopup = $ionicPopup.alert({
         title: 'Votre score',
         cssClass: 'submitButton',
