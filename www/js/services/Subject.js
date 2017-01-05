@@ -7,12 +7,10 @@ multilingua.factory("Subject", ["$firebaseObject", function($firebaseObject) {
 		get: function(selectedLanguage, cb) {
     	var subjects = $firebaseObject(ref.child('subject').child(selectedLanguage));
 			subjects.$loaded().then(function() {
-			  var currentDay = new Date().getDate();
-    		var nbrCours = subjects.cours.length;
-		    //On soustrait au jour courant le nombre de leçons tant que ce jour est supérieur au nombre de leçons
-		    while (currentDay > nbrCours) {
-		      currentDay = currentDay - nbrCours;
-		    }
+				var currentDay = new Date().getDate();
+	    		var nbrCours = subjects.cours.length;
+			    //On soustrait au jour courant le nombre de leçons tant que ce jour est supérieur au nombre de leçons
+			    currentDay %= nbrCours + 1;
 				cb(subjects.cours[currentDay - 1]);
 			});
 		},
@@ -20,21 +18,21 @@ multilingua.factory("Subject", ["$firebaseObject", function($firebaseObject) {
 		getAudio: function(leCours, cb) {
 			var pathReference = ref2.ref(leCours);
 			pathReference.getDownloadURL().then(function(url) {
-			  cb(url);
+			  	cb(url);
 			}).catch(function(error) {
 			});
 		},
 
-    getNamesSubject: function(cb) {
-      var subjects = $firebaseObject(ref.child('subject'));
-      var items = [];
-      subjects.$loaded().then(function() {
-        angular.forEach(subjects, function(value, key) {
-          items.push(key);
-        });
-        cb(items);
-      });
-    }
+	    getNamesSubject: function(cb) {
+		    var subjects = $firebaseObject(ref.child('subject'));
+		    var items = [];
+		    subjects.$loaded().then(function() {
+		        angular.forEach(subjects, function(value, key) {
+		          	items.push(key);
+		        });
+		        cb(items);
+		    });
+	    }
 	}
 }
 ]);

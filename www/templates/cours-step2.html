@@ -6,7 +6,7 @@
       	</div>
 
       	<ion-list>
-	        <ion-item class="listProp" ng-repeat="exercice in leCoursExercice" ng-init="indexExo = $index">
+	        <ion-item class="listProp" ng-repeat="(indexExo,exercice) in leCoursExercice">
 
 		  		<div class="item item-divider cardExercice">
 		   			<h2>Exercice {{indexExo + 1}}</h2>
@@ -16,9 +16,9 @@
               		{{exercice.question}}
               		<hr>
               		<!-- Boucle des propositions -->
-              		<ion-item class="listProp" ng-repeat="prop in exercice.propositions" ng-init="indexProp = $index">
+              		<ion-item class="listProp" ng-repeat="(indexProp,prop) in exercice.propositions">
 						<p>
-							<ion-radio id="{{indexExo}}{{indexProp}}" type="radio" name="radio{{indexExo}}" ng-model="exercice.propSelected" value="{{indexProp}}" required>{{prop.proposition}}</ion-radio>
+							<ion-radio id="{{indexExo}}{{indexProp}}" type="radio" name="radio{{indexExo}}" ng-model="exercice.propSelected" value="{{indexProp}}" required>{{prop}}</ion-radio>
 						</p>
               		</ion-item>
             	</div>
